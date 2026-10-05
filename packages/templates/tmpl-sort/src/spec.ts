@@ -105,7 +105,7 @@ export function normalizeSpec(raw: any): NormalizedSpec {
     endScreen: {
       showScore: bool(endScreen.showScore, true),
       ctaKey: str(endScreen.ctaKey, "cta"),
-      landingUrl: str(endScreen.landingUrl, "https://example.com/playable-lp"),
+      landingUrl: str(endScreen.landingUrl, ""),  // 字面量默认移除(拆仓后与 factory a8be39f 同源修复): 只从 spec 传导, 防自定义落地页触发白名单红线
     },
     locales: Array.isArray(i18n.locales) && i18n.locales.length ? i18n.locales.map(String) : ["en"],
     defaultLocale: str(i18n.defaultLocale, "en"),
